@@ -1,0 +1,47 @@
+---
+title: "Chap1_Bioinformatics"
+author: "Pablo Rodríguez"
+date: "9/3/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("seqinr")
+setwd("~/Projects/MCPI_SEM-2/04_BIOINF/Chap1/src")
+```
+
+## DNA Sequence Statistics
+
+
+
+```{r read_dengue, echo=FALSE}
+dengue <- read.fasta(file='../data/sequence.fasta')
+dengueseq <- dengue[[1]] # dataset into a vector
+```
+
+### Length of a DNA Sequence
+It contains the secuence total lenght in nucelotides retrived from the DEN-1- Dengue virus genome sequence and stores it in the vector variable dengueseq to subsecuentily obtain the lenght of the genome sequence.
+```{r lenght, echo=FALSE}
+length(dengueseq)
+```
+
+### Base composition of a DNA Sequence
+This will count the number of occurences of the four different nucleotides (A ,..., T), this will return the number of each nucleotides.
+```{r basecomposition, echo=FALSE}
+table(dengueseq)
+```
+
+### GC Content of DNA
+GC: Genome secuencen GC content, is the fraction of the sequence that consist of Gs and Cs.
+
+This metric can be calculated as the percentage of the bases in the genome that are Gs or Cs. The formula used is the following:
+
+$GC = \frac{(G_t + C_t)*100}{len(genome)}$
+
+```{r gc_content, echo=FALSE}
+GC(dengueseq)*100
+```
+
+
+### 
